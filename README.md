@@ -24,7 +24,7 @@ Here, we will gradually release the following resources, including:
 ## Video Demos
 
 <div align="center">
-  <!-- <video controls autoplay loop muted playsinline src="https://github.com/user-attachments/assets/2af6d638-e09c-4e98-a565-43c8ca30f91b"></video> -->
+  <video controls autoplay loop muted playsinline src="https://github.com/user-attachments/assets/ba530e6f-e13b-4d04-ad60-b95277cc38ce"></video>
   <p><em>Examples of different video editing tasks by our ReCo.</em></p>
 </div>
 
