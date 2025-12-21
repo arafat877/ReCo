@@ -565,7 +565,7 @@ if __name__ == "__main__":
         video_base_name = video_dict['src_video_path']
         prompt_name = prompt.replace(' ', '_').replace('.', '').replace(',','').replace(':',' ')
         vide_save_name = video_base_name.replace('.mp4', '')
-        video_save_name = f'{vide_save_name}_{prompt_name[:80]}.mp4'
+        video_save_name = f'{vide_save_name}_{prompt_name[:80]}.mp4'       # ! NOTE: VIDEO SAVE NAME
 
         try:
             tar_video_path = os.path.join(args.edited_video_folder, video_save_name)

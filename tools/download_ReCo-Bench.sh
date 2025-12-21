@@ -11,7 +11,7 @@ hf_token="YOUR HF TOKEN"
 tool="aria2c"
 threads="10"
 concurrent_file='1'
-dir='YOUR_ReCo-Bench_CACHE_PATH'
+dir='YOUR_ReCo-Bench_CACHE_PATH_DIR'
 # exclude_pattern="*.safetensors"
 
 

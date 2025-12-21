@@ -192,7 +192,7 @@ def main():
 
 
         # 逐条计算并写回 gmean；同时累加各 indicator
-        for item in data:
+        for item in data: 
             if not isinstance(item, dict):
                 continue
 

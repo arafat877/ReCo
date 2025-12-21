@@ -11,7 +11,7 @@ hf_token="YOUR HF TOKEN"
 tool="aria2c"
 threads="10"
 concurrent_file='1'
-dir='YOUR_ReCo-Data_CACHE_PATH'     # at least 1.3T
+dir='YOUR_ReCo-Data_CACHE_PATH_DIR'     # at least 1.3T
 # exclude_pattern="*.safetensors"
 
 

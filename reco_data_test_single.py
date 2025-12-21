@@ -260,7 +260,7 @@ if __name__ == "__main__":
 
     all_video_info_dict_list = []
     for i,data_iter in tqdm(enumerate(dataloader_debug), total=len(dataloader_debug)):
-
+ 
         if data_iter['item'][0] is None:
             tar_video_name = data_iter['video_tar_name'][0]
             print(f'Read erro {tar_video_name}')

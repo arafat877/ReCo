@@ -20,7 +20,7 @@ Here, we will gradually release the following resources, including:
 * **Evaluation code:** ReCo-Bench
 * **Model weights, inference code, and training code**
 
-
+ 
 ## Video Demos
 
 <div align="center">
