@@ -31,9 +31,9 @@ Here, we will gradually release the following resources, including:
 
 
 ## 🔥 Updates
-- ✅ **\[2025.12.23\]** Upload Our arXiv Paper.
-- ✅ **\[2025.12.24\]** Release ReCo-Data and Usage code.
-- ✅ **\[2025.12.24\]** Release ReCo-Bench and evaluation code.
+- ✅ **\[2025.12.22\]** Upload Our arXiv Paper.
+- ✅ **\[2025.12.23\]** Release ReCo-Data and Usage code.
+- ✅ **\[2025.12.23\]** Release ReCo-Bench and evaluation code.
 - ⬜ Release Model weights and inference code in 2-3 weeks.
 - ⬜ Release training code.
 
