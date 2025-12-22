@@ -220,7 +220,11 @@ Will be released soon.
 ## 🌟 Star and Citation
 If you find our work helpful for your research, please consider giving a star⭐ on this repository and citing our work.
 ```
-@artical{
+@article{reco,
+	title={{Region-Constraint In-Context Generation for Instructional Video Editing}},
+	author={Zhongwei Zhang and Fuchen Long and Wei Li and Zhaofan Qiu and Wu Liu and Ting Yao and Tao Mei},
+	journal={arXiv preprint arXiv:2512.17650},
+	year={2025}
 }
 ```
 
