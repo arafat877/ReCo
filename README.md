@@ -5,7 +5,7 @@
 <p>
 
 <p align="center">
-    🖥️ <a href="https://github.com/HiDream-ai/ReCo">GitHub</a> &nbsp&nbsp ｜ &nbsp&nbsp  🌐 <a href="https://zhw-zhang.github.io/ReCo-page/"><b>Project Page</b></a> &nbsp&nbsp  | &nbsp&nbsp🤗 <a href="https://huggingface.co/datasets/HiDream-ai/ReCo-Data">ReCo-Data</a>&nbsp&nbsp | &nbsp&nbsp 📈 <a href="https://huggingface.co/datasets/HiDream-ai/ReCo-Bench">ReCo-Bench</a>&nbsp&nbsp | &nbsp&nbsp 🤗 <a href="https://huggingface.co/HiDream-ai/ReCo">ReCo-Models(TBD)  </a> &nbsp&nbsp | &nbsp&nbsp 📖 <a href="https://arxiv.org/pdf/2505.20287">Paper</a> &nbsp&nbsp 
+    🖥️ <a href="https://github.com/HiDream-ai/ReCo">GitHub</a> &nbsp&nbsp ｜ &nbsp&nbsp  🌐 <a href="https://zhw-zhang.github.io/ReCo-page/"><b>Project Page</b></a> &nbsp&nbsp  | &nbsp&nbsp🤗 <a href="https://huggingface.co/datasets/HiDream-ai/ReCo-Data">ReCo-Data</a>&nbsp&nbsp | &nbsp&nbsp 📈 <a href="https://huggingface.co/datasets/HiDream-ai/ReCo-Bench">ReCo-Bench</a>&nbsp&nbsp | &nbsp&nbsp 🤗 <a href="https://huggingface.co/HiDream-ai/ReCo">ReCo-Models(TBD)  </a> &nbsp&nbsp | &nbsp&nbsp 📖 <a href="https://arxiv.org/abs/2512.17650">Paper</a> &nbsp&nbsp 
 <br>
 
 
