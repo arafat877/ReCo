@@ -227,9 +227,9 @@ pip install -r requirements.txt
 You need to prepare both the base model and our specific checkpoints.
 
 | Model | Source | Description |
-| --- | --- | --- |
-| **Wan-2.1-VACE** | [🤗 Hugging Face](https://huggingface.co/Wan-AI/Wan2.1-VACE-1.3B) | Base VACE weights (Place in `./Wan-AI`) |
-| **ReCo** | [🤗 Hugging Face](https://huggingface.co/HiDream-ai/ReCo) | Our ReCo Preview checkpoint, we will update better ckpts progressively afterward (Place in `all_ckpts/`) |
+| --------- | --------- | --- |
+| **VACE 1.3B** | [🤗 Hugging Face](https://huggingface.co/Wan-AI/Wan2.1-VACE-1.3B) | Base VACE weights (Place in `./Wan-AI`) |
+| **ReCo** | [🤗 Hugging Face](https://huggingface.co/HiDream-ai/ReCo) | Our ReCo Preview checkpoint(Place in `all_ckpts/`). We will update better ckpts progressively afterward |
 
 **Organize the files as follows:**
 ```text
