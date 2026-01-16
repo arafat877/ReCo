@@ -234,7 +234,7 @@ You need to prepare both the base model and our specific checkpoints.
 <table>
   <thead>
     <tr>
-      <th width="20%">Model</th>
+      <th width="30%">Model</th>
       <th width="25%">Source</th>
       <th>Description</th>
     </tr>
