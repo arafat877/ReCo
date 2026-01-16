@@ -211,8 +211,8 @@ if __name__ == "__main__":
                                                                             "remove_wf", "replace_wf", "add_wf", "style_wf",])
     parser.add_argument("--base_video_folder", type=str, default="assets/test_videos")
     parser.add_argument("--process_id", type=int, default=0)
-    parser.add_argument("--num_nodes", type=int, default=2)
-    parser.add_argument("--all", action="store_true", default=False)
+    parser.add_argument("--num_nodes", type=int, default=1)
+    parser.add_argument("--multi_gpu", action="store_true", default=False)
     parser.add_argument("--base_wan_folder", type=str, default="./Wan-AI")
     parser.add_argument("--lora_ckpt", type=str, default="all_ckpts/2026_01_16_v1_release_preview.ckpt")
     args = parser.parse_args()
@@ -229,7 +229,7 @@ if __name__ == "__main__":
     base_video_folder = args.base_video_folder
     file_name = args.test_txt_file_name
     all_video_list = parse_instruction_file(file_name)
-    if not args.all:
+    if not args.multi_gpu:
         all_video_list = all_video_list[args.process_id::8*args.num_nodes]
 
     # ============================ 3. Load model ==================
