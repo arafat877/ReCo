@@ -5,7 +5,7 @@
 <p>
 
 <p align="center">
-    🖥️ <a href="https://github.com/HiDream-ai/ReCo">GitHub</a> &nbsp&nbsp ｜ &nbsp&nbsp  🌐 <a href="https://zhw-zhang.github.io/ReCo-page/"><b>Project Page</b></a> &nbsp&nbsp  | &nbsp&nbsp🤗 <a href="https://huggingface.co/datasets/HiDream-ai/ReCo-Data">ReCo-Data</a>&nbsp&nbsp | &nbsp&nbsp 📈 <a href="https://huggingface.co/datasets/HiDream-ai/ReCo-Bench">ReCo-Bench</a>&nbsp&nbsp | &nbsp&nbsp 🤗 <a href="https://huggingface.co/HiDream-ai/ReCo">ReCo-Models(TBD)  </a> &nbsp&nbsp | &nbsp&nbsp 📖 <a href="https://arxiv.org/abs/2512.17650">Paper</a> &nbsp&nbsp 
+    🖥️ <a href="https://github.com/HiDream-ai/ReCo">GitHub</a> &nbsp&nbsp ｜ &nbsp&nbsp  🌐 <a href="https://zhw-zhang.github.io/ReCo-page/"><b>Project Page</b></a> &nbsp&nbsp  | &nbsp&nbsp🤗 <a href="https://huggingface.co/datasets/HiDream-ai/ReCo-Data">ReCo-Data</a>&nbsp&nbsp | &nbsp&nbsp 📈 <a href="https://huggingface.co/datasets/HiDream-ai/ReCo-Bench">ReCo-Bench</a>&nbsp&nbsp | &nbsp&nbsp 🤗 <a href="https://huggingface.co/HiDream-ai/ReCo">ReCo-Models  </a> &nbsp&nbsp | &nbsp&nbsp 📖 <a href="https://arxiv.org/abs/2512.17650">Paper</a> &nbsp&nbsp 
 <br>
 
 
@@ -34,7 +34,7 @@ Here, we will gradually release the following resources, including:
 - ✅ **\[2025.12.22\]** Upload Our arXiv Paper.
 - ✅ **\[2025.12.23\]** Release ReCo-Data and Usage code.
 - ✅ **\[2025.12.23\]** Release ReCo-Bench and evaluation code.
-- ⬜ Release Model weights and inference code in 2-3 weeks.
+- ✅ **\[2026.01.16\]** Release Model weights and inference code.
 - ⬜ Release training code.
 
 
@@ -209,9 +209,65 @@ This step produces the final benchmark scores for each task as well as the overa
 
 
 
+## 🏃 Inference
 
-## 🏃🏼 Inference
-Stay tuned — we will open-source the model weights and inference codes within 2–3 weeks expectly.
+### 1. Environment Preparation
+
+Create and activate the specialized Conda environment:
+
+```bash
+conda create -n reco python=3.11 -y
+conda activate reco
+pip install -r requirements.txt
+```
+
+### 2. Model Weights Setup
+
+You need to prepare both the base model and our specific checkpoints.
+
+| Model | Source | Description |
+| --- | --- | --- |
+| **Wan-2.1-VACE** | [Hugging Face](https://huggingface.co/Wan-AI/Wan2.1-VACE-1.3B) | Base VACE weights (Place in `./Wan-AI`) |
+| **ReCo** | [Hugging Face](https://huggingface.co/HiDream-ai/ReCo) | Our trained checkpoint (Place in `all_ckpts/`) |
+
+**Organize the files as follows:**
+```text
+.
+├── Wan-AI/                      
+├── all_ckpts/                   
+│   └── 2026_01_16_v1_release_preview.ckpt  
+├── assets/                      
+└── inference_reco_single.py
+```
+
+### 3. Running Inference
+
+We provide a bash script to automate the execution of different tasks (Replace, Remove, Style, Add and Propagation). Run the following command:
+
+```bash
+bash infer_server_single.sh
+```
+
+To run a specific task manually or customize the execution, use the python command directly:
+
+```bash
+python inference_reco_single.py \
+    --task_name replace \
+    --test_txt_file_name assets/replace_test.txt \
+    --lora_ckpt all_ckpts/2026_01_16_v1_release_preview.ckpt
+```
+
+### 4. Key Arguments Explained
+
+| Argument | Type | Default | Description |
+| --- | --- | --- | --- |
+| `--test_txt_file_name` | `str` | `assets/...` | Path to the `.txt` file containing test prompts/configs. |
+| `--task_name` | `str` | `replace` | Task type: `remove`, `replace`, `add`, `style`. Use the `_wf` suffix (e.g., `remove_wf`) for **Propagation tasks** given the first frame. |
+| `--base_video_folder` | `str` | `assets/test_videos` | Directory containing the source videos. |
+| `--base_wan_folder` | `str` | `./Wan-AI` | Path to the pre-trained Wan-AI model weights. |
+| `--lora_ckpt` | `str` | `all_ckpts/...` | Path to the specific LoRA checkpoint file. |
+
+
 
 ## 🚀 Training
 Will be released soon.

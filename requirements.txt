@@ -1,0 +1,8 @@
+torch==2.5.0+cu118
+torchvision==0.20.0+cu118
+cd DiffSynth-Studio
+pip install -e .
+decord==0.6.0
+peft==0.17.1
+Pillow==10.4.0
+omegaconf==2.3.0
