@@ -262,11 +262,11 @@ python inference_reco_single.py \
 
 | Argument | Type | Default | Description |
 | --- | --- | --- | --- |
-| `--test_txt_file_name` | `str` | `assets/...` | Path to the `.txt` file containing test prompts/configs. |
-| `--task_name` | `str` | `replace` | Task type: `remove`, `replace`, `add`, `style`. Use the `_wf` suffix (e.g., `remove_wf`) for **Propagation tasks** given the first frame. |
-| `--base_video_folder` | `str` | `assets/test_videos` | Directory containing the source videos. |
-| `--base_wan_folder` | `str` | `./Wan-AI` | Path to the pre-trained Wan-AI model weights. |
-| `--lora_ckpt` | `str` | `all_ckpts/...` | Path to the specific LoRA checkpoint file. |
+| `test_txt_file_name` | `str` | `assets/...` | Path to the `.txt` file containing test prompts/configs. |
+| `task_name` | `str` | `replace` | Task type: `remove`, `replace`, `add`, `style`. Use the `_wf` suffix (e.g., `remove_wf`) for **Propagation tasks** given the first frame. |
+| `base_video_folder` | `str` | `assets/test_videos` | Directory containing the source videos. |
+| `base_wan_folder` | `str` | `./Wan-AI` | Path to the pre-trained Wan-AI model weights. |
+| `lora_ckpt` | `str` | `all_ckpts/...` | Path to the specific LoRA checkpoint file. |
 
 
 
