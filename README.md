@@ -170,6 +170,7 @@ bash ./tools/download_ReCo-Bench.sh
 
 After downloading the benchmark, you can directly start the evaluation using:
 ```bash
+cd tools
 bash run_eval_via_gemini.sh
 ```
 
