@@ -234,21 +234,21 @@ You need to prepare both the base model and our specific checkpoints.
 <table>
   <thead>
     <tr>
-      <th width="30%">Model</th>
-      <th width="25%">Source</th>
-      <th>Description</th>
+      <th width="25%" align="center">Model</th>
+      <th width="25%" align="center">Source</th>
+      <th align="left">Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><b>Wan-2.1-VACE-1.3B</b></td>
-      <td><a href="https://huggingface.co/Wan-AI/Wan2.1-VACE-1.3B">🤗 Hugging Face</a></td>
-      <td>Base VACE weights (Place in <code>./Wan-AI</code>)</td>
+      <td align="center"><b>VACE 1.3B</b></td>
+      <td align="center"><a href="https://huggingface.co/Wan-AI/Wan2.1-VACE-1.3B">🤗 Hugging Face</a></td>
+      <td>Base VACE weights. Place in <code>./Wan-AI</code></td>
     </tr>
     <tr>
-      <td><b>ReCo</b></td>
-      <td><a href="https://huggingface.co/HiDream-ai/ReCo">🤗 Hugging Face</a></td>
-      <td>Our ReCo Preview checkpoint (Place in <code>all_ckpts/</code>). We will update better ckpts progressively afterward.</td>
+      <td align="center"><b>ReCo</b></td>
+      <td align="center"><a href="https://huggingface.co/HiDream-ai/ReCo">🤗 Hugging Face</a></td>
+      <td>Our ReCo Preview checkpoint. Place in <code>all_ckpts/</code>. We will update better ckpts progressively afterward.</td>
     </tr>
   </tbody>
 </table>
