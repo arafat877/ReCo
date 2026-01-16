@@ -229,7 +229,7 @@ if __name__ == "__main__":
     base_video_folder = args.base_video_folder
     file_name = args.test_txt_file_name
     all_video_list = parse_instruction_file(file_name)
-    if not args.multi_gpu:
+    if args.multi_gpu:
         all_video_list = all_video_list[args.process_id::8*args.num_nodes]
 
     # ============================ 3. Load model ==================
