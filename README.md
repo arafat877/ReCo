@@ -34,7 +34,7 @@ Here, we will gradually release the following resources, including:
 - ✅ **\[2025.12.22\]** Upload Our arXiv Paper.
 - ✅ **\[2025.12.23\]** Release ReCo-Data and Usage code.
 - ✅ **\[2025.12.23\]** Release ReCo-Bench and evaluation code.
-- ✅ **\[2026.01.16\]** Release Model weights and inference code.
+- ✅ **\[2026.01.16\]** Release ReCo Model weights(Preview) and inference code.
 - ⬜ Release training code.
 
 
@@ -227,8 +227,8 @@ You need to prepare both the base model and our specific checkpoints.
 
 | Model | Source | Description |
 | --- | --- | --- |
-| **Wan-2.1-VACE** | [Hugging Face](https://huggingface.co/Wan-AI/Wan2.1-VACE-1.3B) | Base VACE weights (Place in `./Wan-AI`) |
-| **ReCo** | [Hugging Face](https://huggingface.co/HiDream-ai/ReCo) | Our trained checkpoint (Place in `all_ckpts/`) |
+| **Wan-2.1-VACE** | [🤗 Hugging Face](https://huggingface.co/Wan-AI/Wan2.1-VACE-1.3B) | Base VACE weights (Place in `./Wan-AI`) |
+| **ReCo** | [🤗 Hugging Face](https://huggingface.co/HiDream-ai/ReCo) | Our ReCo Preview checkpoint, we will update better ckpts progressively afterward (Place in `all_ckpts/`) |
 
 **Organize the files as follows:**
 ```text
