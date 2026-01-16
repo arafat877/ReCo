@@ -241,7 +241,7 @@ You need to prepare both the base model and our specific checkpoints.
   </thead>
   <tbody>
     <tr>
-      <td><b>VACE 1.3B</b></td>
+      <td><b>Wan-2.1-VACE-1.3B</b></td>
       <td><a href="https://huggingface.co/Wan-AI/Wan2.1-VACE-1.3B">🤗 Hugging Face</a></td>
       <td>Base VACE weights (Place in <code>./Wan-AI</code>)</td>
     </tr>
