@@ -226,10 +226,32 @@ pip install -r requirements.txt
 
 You need to prepare both the base model and our specific checkpoints.
 
-| Model | Source | Description |
-| --------- | --------- | --- |
+<!-- | Model | Source | Description |
+| --- | --- | --- |
 | **VACE 1.3B** | [🤗 Hugging Face](https://huggingface.co/Wan-AI/Wan2.1-VACE-1.3B) | Base VACE weights (Place in `./Wan-AI`) |
-| **ReCo** | [🤗 Hugging Face](https://huggingface.co/HiDream-ai/ReCo) | Our ReCo Preview checkpoint(Place in `all_ckpts/`). We will update better ckpts progressively afterward |
+| **ReCo** | [🤗 Hugging Face](https://huggingface.co/HiDream-ai/ReCo) | Our ReCo Preview checkpoint(Place in `all_ckpts/`). We will update better ckpts progressively afterward | -->
+
+<table>
+  <thead>
+    <tr>
+      <th width="20%">Model</th>
+      <th width="25%">Source</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>VACE 1.3B</b></td>
+      <td><a href="https://huggingface.co/Wan-AI/Wan2.1-VACE-1.3B">🤗 Hugging Face</a></td>
+      <td>Base VACE weights (Place in <code>./Wan-AI</code>)</td>
+    </tr>
+    <tr>
+      <td><b>ReCo</b></td>
+      <td><a href="https://huggingface.co/HiDream-ai/ReCo">🤗 Hugging Face</a></td>
+      <td>Our ReCo Preview checkpoint (Place in <code>all_ckpts/</code>). We will update better ckpts progressively afterward.</td>
+    </tr>
+  </tbody>
+</table>
 
 **Organize the files as follows:**
 ```text
