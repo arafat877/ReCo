@@ -36,7 +36,7 @@ Here, we will gradually release the following resources, including:
 - ✅ **\[2025.12.23\]** Release ReCo-Bench and evaluation code.
 - ✅ **\[2026.01.16\]** Release ReCo Model weights(Preview) and inference code.
 - ✅ **\[2026.01.16\]** Uploaded raw [video object masks](https://huggingface.co/datasets/HiDream-ai/ReCo-Data/tree/main/video_masks) to ReCo-Data.
-- ✅ Release training code.
+- ✅ **\[2026.02.26\]** Release training code.
 
 
 
@@ -249,7 +249,7 @@ You need to prepare both the base model and our specific checkpoints.
     <tr>
       <td align="center"><b>ReCo</b></td>
       <td align="center"><a href="https://huggingface.co/HiDream-ai/ReCo">🤗 Hugging Face</a></td>
-      <td>Our ReCo Preview checkpoint. Place in <code>all_ckpts/</code>. We will update better ckpts progressively afterward.</td>
+      <td>Our ReCo Preview checkpoint. Place in <code>all_ckpts/</code>.</td>
     </tr>
   </tbody>
 </table>
