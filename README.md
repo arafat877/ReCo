@@ -36,7 +36,7 @@ Here, we will gradually release the following resources, including:
 - ✅ **\[2025.12.23\]** Release ReCo-Bench and evaluation code.
 - ✅ **\[2026.01.16\]** Release ReCo Model weights(Preview) and inference code.
 - ✅ **\[2026.01.16\]** Uploaded raw [video object masks](https://huggingface.co/datasets/HiDream-ai/ReCo-Data/tree/main/video_masks) to ReCo-Data.
-- ⬜ Release training code.
+- ✅ Release training code.
 
 
 
