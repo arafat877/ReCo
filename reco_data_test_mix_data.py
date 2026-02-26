@@ -167,6 +167,152 @@ class WebMixDatasetWithLength(IterableDataset):
                 self.dataset_iters[dataset_idx] = iter(self.dataset_list[dataset_idx])
 
 
+
+def collate_fn_with_diff_mask(batch):
+
+    tar_video_key = torch.stack([item['tar_video_key'] for item in batch], dim=0)
+    tar_video_key_mask = torch.stack([item['tar_video_key_mask'] for item in batch], dim=0)
+    ref_video = torch.stack([item['ref_video'] for item in batch], dim=0)
+    tar_video = torch.stack([item['tar_video'] for item in batch], dim=0)
+    diff_mask = torch.stack([item['diff_mask'] for item in batch], dim=0)
+    prompt = [item['prompt'] for item in batch]
+    video_name = [item['video_name'] for item in batch]
+    ref_img_path = [item['ref_img_path'] for item in batch]
+
+    task_name = [item['task_name'] for item in batch]
+
+
+    dict_data = {
+        'tar_video_key': tar_video_key,
+        'tar_video_key_mask': tar_video_key_mask,
+        'ref_video': ref_video,
+        'tar_video': tar_video,
+        'diff_mask': diff_mask,
+        'task_name': task_name,
+        'prompt': prompt,
+        'video_name': video_name,
+        'ref_img_path': ref_img_path,
+    }
+
+    return dict_data
+
+
+
+class ReCo_Dataset_train(Dataset):
+    def __init__(
+        self,
+        all_data_list: list = None,
+        height: int = 480,
+        width: int = 832,
+        max_num_frames: int = 81,
+        rank: int = 0,
+        world_size: int = 1,
+        base_video_folder: str = '',
+        read_video_from_local = False,
+        task_name = 'replace',
+        user_first_frame=True,
+
+    ) -> None:
+        super().__init__()
+        self.all_data_list = all_data_list
+        self.height = height
+        self.width = width
+        self.max_num_frames = max_num_frames
+        self.rank = rank
+        self.world_size = world_size
+        self.instance_metas = self.all_data_list[self.rank::self.world_size]
+        self.s3 = boto3.client('s3')
+        self.base_video_folder = base_video_folder
+        self.read_video_from_local = read_video_from_local
+        self.task_name = task_name
+        self.user_first_frame = user_first_frame
+
+
+    def __len__(self):
+        return len(self.instance_metas)
+
+    def read_video(self, video_path):
+
+        vr = get_file(video_path, self.s3, prefix='.mp4')
+
+        return vr
+
+    def calculate_frame_indices(self, total_frames: int, video_fps: float, num_samples: int = 0) -> np.ndarray:
+
+        beg = 0  
+        end = total_frames
+
+        frame_interval = video_fps / 16
+        indices = np.arange(beg, end, frame_interval).astype(int)
+        if len(indices) < num_samples:
+            repeated_indices = np.array([indices[-1]] * (num_samples - len(indices)))
+            indices = np.concatenate([indices, repeated_indices])
+        
+        if len(indices) > num_samples:
+            frame_start = 0  
+            frame_end = frame_start + num_samples
+            indices = indices[frame_start:frame_end]       
+
+        indices = np.clip(indices, 0, total_frames - 1)
+        return indices
+
+
+    def __getitem__(self, index):
+
+        item = self.instance_metas[index]
+        src_video_path = os.path.join(self.base_video_folder,item['src_video'])
+        tar_video_path = os.path.join(self.base_video_folder, item['tar_video'])
+
+        video_tar_name = os.path.basename(item['tar_video']).replace('.mp4','')
+        video_src_name = os.path.basename(item['src_video']).replace('.mp4','')
+        prompt = item['instruction_final_refine'].strip()
+        task_name = self.task_name
+
+        # -------------- STEP.1 read src video and process src video
+        if not self.read_video_from_local:
+            # load from aoss
+            vr_src = self.read_video(src_video_path)
+            vr_tar = self.read_video(tar_video_path)
+        else:
+            # load from local
+            vr_src = decord.VideoReader(src_video_path)
+            vr_tar = decord.VideoReader(tar_video_path)
+
+        src_video = torch.from_numpy(vr_src.get_batch(list(range(0, len(vr_src)))).asnumpy())
+        src_video = (src_video/255) *2 -1
+
+        tar_video = torch.from_numpy(vr_tar.get_batch(list(range(0, len(vr_tar)))).asnumpy())
+        tar_video = (tar_video/255) *2 -1
+
+        tar_concated_video = torch.concat([src_video, tar_video], dim=2)
+
+        # 3. return all data_dict
+        f,h,w,c = tar_video.shape
+        tar_video_key_mask = torch.zeros_like(tar_concated_video)
+        if self.user_first_frame and torch.rand(1).item()>0.95:
+            tar_video_key_mask[1:,:,w:] = 1
+        else:
+            tar_video_key_mask[:,:,w:] = 1
+
+        tar_video_key = tar_concated_video * (1-tar_video_key_mask)
+        ref_img_path = None
+
+        video_save_name = f"task_{task_name}_dataset_reco_{video_tar_name}"
+
+        return {
+            'tar_video_key': tar_video_key.permute(3,0,1,2),                    # video input, [c,f,h,w], tensor [-1, 1]
+            'tar_video_key_mask': tar_video_key_mask.permute(3,0,1,2),          # mask for tar_video_key, [c,f,h,w], 0-1
+            'ref_video': torch.zeros_like(tar_video_key).permute(3,0,1,2),      # depth ect. input, [c,f,h,w], tensor [-1, 1]
+            'tar_video': tar_concated_video.permute(3,0,1,2),                   # tar_video, [c,f,h,w], tensor [-1, 1]
+            'diff_mask': torch.zeros_like(tar_video_key).permute(3,0,1,2),      # edit area mask, [c,f,h,w], tensor [-1, 1]
+            'task_name': task_name,
+            'prompt': prompt, 
+            'video_name': video_save_name, 
+            'ref_img_path': ref_img_path,
+        }
+    
+
+
 class ReCo_Dataset(Dataset):
     def __init__(
         self,

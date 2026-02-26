@@ -294,7 +294,23 @@ python inference_reco_single.py \
 
 
 ## 🚀 Training
-Will be released soon.
+
+To start training, run:
+
+```bash
+bash train.sh
+```
+
+### ⚠️ Important Notes
+
+* Make sure to update the **pretrained model weight paths** in the script to match your local environment.
+* In `train.py`, modify the dataset paths inside
+  `LightningModelForTrain.train_dataloader`:
+
+  * Update the **JSON annotation directory**
+  * Update the **video data directory**
+
+Ensure these paths point to your local dataset before launching training.
 
 
 ## 🌟 Star and Citation
