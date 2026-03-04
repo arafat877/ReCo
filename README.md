@@ -34,7 +34,7 @@ Here, we will gradually release the following resources, including:
 - ✅ **\[2025.12.22\]** Upload Our arXiv Paper.
 - ✅ **\[2025.12.23\]** Release ReCo-Data and Usage code.
 - ✅ **\[2025.12.23\]** Release ReCo-Bench and evaluation code.
-- ✅ **\[2026.01.16\]** Release ReCo Model weights(Preview) and inference code.
+- ✅ **\[2026.01.16\]** Release ReCo Model weights() and inference code.
 - ✅ **\[2026.01.16\]** Uploaded raw [video object masks](https://huggingface.co/datasets/HiDream-ai/ReCo-Data/tree/main/video_masks) to ReCo-Data.
 - ✅ **\[2026.02.26\]** Release training code.
 
@@ -230,7 +230,7 @@ You need to prepare both the base model and our specific checkpoints.
 <!-- | Model | Source | Description |
 | --- | --- | --- |
 | **VACE 1.3B** | [🤗 Hugging Face](https://huggingface.co/Wan-AI/Wan2.1-VACE-1.3B) | Base VACE weights (Place in `./Wan-AI`) |
-| **ReCo** | [🤗 Hugging Face](https://huggingface.co/HiDream-ai/ReCo) | Our ReCo Preview checkpoint(Place in `all_ckpts/`). We will update better ckpts progressively afterward | -->
+| **ReCo** | [🤗 Hugging Face](https://huggingface.co/HiDream-ai/ReCo) | Our ReCo checkpoint(Place in `all_ckpts/`). We will update better ckpts progressively afterward | -->
 
 <table>
   <thead>
@@ -249,7 +249,7 @@ You need to prepare both the base model and our specific checkpoints.
     <tr>
       <td align="center"><b>ReCo</b></td>
       <td align="center"><a href="https://huggingface.co/HiDream-ai/ReCo">🤗 Hugging Face</a></td>
-      <td>Our ReCo Preview checkpoint. Place in <code>all_ckpts/</code>.</td>
+      <td>Our ReCo checkpoint. Place in <code>all_ckpts/</code>.</td>
     </tr>
   </tbody>
 </table>
