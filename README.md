@@ -259,7 +259,7 @@ You need to prepare both the base model and our specific checkpoints.
 .
 ├── Wan-AI/                      
 ├── all_ckpts/                   
-│   └── 2026_01_16_v1_release_preview.ckpt  
+│   └── 2026_01_16_v1_release.ckpt  
 ├── assets/                      
 └── inference_reco_single.py
 ```
@@ -278,7 +278,7 @@ To run a specific task manually or customize the execution, use the python comma
 python inference_reco_single.py \
     --task_name replace \
     --test_txt_file_name assets/replace_test.txt \
-    --lora_ckpt all_ckpts/2026_01_16_v1_release_preview.ckpt
+    --lora_ckpt all_ckpts/2026_01_16_v1_release.ckpt
 ```
 
 ### 4. Key Arguments Explained
