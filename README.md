@@ -28,7 +28,8 @@ Here, we will gradually release the following resources, including:
   <p><em>Examples of different video editing tasks by our ReCo.</em></p>
 </div>
 
-
+📢 News
+We are excited to see that [Kiwi-Edit](https://github.com/showlab/Kiwi-Edit/tree/main) has further refined our **ReCo dataset** and added reference image pairs. Check out their [DATASET.md](https://github.com/showlab/Kiwi-Edit/blob/main/DATASET.md) for further instructions.
 
 ## 🔥 Updates
 - ✅ **\[2025.12.22\]** Upload Our arXiv Paper.
