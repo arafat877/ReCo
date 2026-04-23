@@ -317,11 +317,11 @@ Ensure these paths point to your local dataset before launching training.
 ## 🌟 Star and Citation
 If you find our work helpful for your research, please consider giving a star⭐ on this repository and citing our work.
 ```
-@article{reco,
-	title={{Region-Constraint In-Context Generation for Instructional Video Editing}},
-	author={Zhongwei Zhang and Fuchen Long and Wei Li and Zhaofan Qiu and Wu Liu and Ting Yao and Tao Mei},
-	journal={arXiv preprint arXiv:2512.17650},
-	year={2025}
+@article{zhang2025region,
+  title={Region-Constraint In-Context Generation for Instructional Video Editing},
+  author={Zhang, Zhongwei and Long, Fuchen and Li, Wei and Qiu, Zhaofan and Liu, Wu and Yao, Ting and Mei, Tao},
+  journal={arXiv preprint arXiv:2512.17650},
+  year={2025}
 }
 ```
 
