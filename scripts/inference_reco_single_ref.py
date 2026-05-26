@@ -1,8 +1,17 @@
 import torch
-from diffsynth import ModelManager, WanVideoPipeline, save_video
 from PIL import Image
 from tqdm import tqdm
 import os
+import sys
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+for path in (PROJECT_ROOT, PROJECT_ROOT / "DiffSynth-Studio"):
+    path_str = str(path)
+    if path_str not in sys.path:
+        sys.path.insert(0, path_str)
+
+from diffsynth import ModelManager, WanVideoPipeline, save_video
 from diffsynth.models.utils import load_state_dict
 from peft import LoraConfig, inject_adapter_in_model
 

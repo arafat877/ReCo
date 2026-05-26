@@ -5,11 +5,11 @@
 <p>
 
 <p align="center">
-    🖥️ <a href="https://github.com/HiDream-ai/ReCo">GitHub</a> &nbsp&nbsp ｜ &nbsp&nbsp  🌐 <a href="https://zhw-zhang.github.io/ReCo-page/"><b>Project Page</b></a> &nbsp&nbsp  | &nbsp&nbsp🤗 <a href="https://huggingface.co/datasets/HiDream-ai/ReCo-Data">ReCo-Data</a>&nbsp&nbsp | &nbsp&nbsp 📈 <a href="https://huggingface.co/datasets/HiDream-ai/ReCo-Bench">ReCo-Bench</a>&nbsp&nbsp | &nbsp&nbsp 🤗 <a href="https://huggingface.co/HiDream-ai/ReCo">ReCo-Models  </a> &nbsp&nbsp | &nbsp&nbsp 📖 <a href="https://arxiv.org/abs/2512.17650">Paper</a> &nbsp&nbsp 
+    🌐 <a href="https://zhw-zhang.github.io/ReCo-page/"><b>Project Page</b></a> &nbsp&nbsp  | &nbsp&nbsp🤗 <a href="https://huggingface.co/datasets/HiDream-ai/ReCo-Data">ReCo-Data</a>&nbsp&nbsp | &nbsp&nbsp 📈 <a href="https://huggingface.co/datasets/HiDream-ai/ReCo-Bench">ReCo-Bench</a>&nbsp&nbsp | &nbsp&nbsp 🤗 <a href="https://huggingface.co/HiDream-ai/ReCo">ReCo-Models  </a> &nbsp&nbsp | &nbsp&nbsp 🌟 <a href="https://zhw-zhang.github.io/ReCo-page/#reco-bench-leaderboard">Leaderboard(New!!)</a> &nbsp&nbsp 
 <br>
  
 
-[**ReCo: Region-Constraint In-Context Generation for Instructional Video Editing**](https://zhw-zhang.github.io/ReCo-page/) <be>
+[**ReCo: In-Context Generation with Regional Constraints for Instructional Video Editing**](https://zhw-zhang.github.io/ReCo-page/) <be>
 
 🔆 If you find ReCo useful, please give a ⭐ for this repo, which is important to Open-Source projects. Thanks!
 
@@ -30,7 +30,11 @@ Here, we will gradually release the following resources, including:
 
 ## 📢 News!!!
 
-- **Dataset Usage**: We are excited to see our **ReCo-Data** being used for model training in [Mamoda2.5](https://arxiv.org/pdf/2605.02641v1), [SAMA](https://arxiv.org/pdf/2603.19228), [LIVE](https://arxiv.org/pdf/2604.17021), [Kiwi-Edit](https://arxiv.org/pdf/2603.02175), [ISA](https://arxiv.org/pdf/2605.04569), etc. We sincerely thank these great works for building upon **ReCo-Data**. As of now, **ReCo-Data** has reached **26.3K downloads**, with a peak monthly download count of **9.75K**. 🎉🚀 We greatly appreciate the community's interest and support.
+- **🌟 ReCo-Bench Leaderboard**: We have released a [ReCo-Bench Leaderboard](https://zhw-zhang.github.io/ReCo-page/#reco-bench-leaderboard) of models evaluated on ReCo-Bench. Welcome to check it out!
+
+- **🌟 Dataset Usage**: We are excited to see our **ReCo-Data** being used for model training in [Mamoda2.5(ByteDance)](https://arxiv.org/pdf/2605.02641v1), [SAMA(Baidu)](https://arxiv.org/pdf/2603.19228), [LIVE(Kuaishou)](https://arxiv.org/pdf/2604.17021), [Kiwi-Edit(NUS)](https://arxiv.org/pdf/2603.02175), [ISA(HKUST)](https://arxiv.org/pdf/2605.04569), [Aurora(NVIDIA)](https://arxiv.org/pdf/2605.18748), etc. We sincerely thank these great works for building upon **ReCo-Data**.
+
+- **2026.05.24**: As of now, **ReCo-Data** has reached **30.1K downloads**, with a peak monthly download count of **9.75K**. 🎉🚀 We greatly appreciate the community's interest and support.
 
 - **2026.05.01**: ReCo has been accepted to **ICML 2026**. We will update the latest paper version soon.
 
@@ -130,7 +134,7 @@ After downloading the dataset, you can directly test and visualize samples from 
 (taking the **replace** task as an example):
 
 ```bash
-python reco_data_test_single.py \
+python scripts/reco_data_test_single.py \
   --json_path ./ReCo-Data/replace/replace_data_configs.json \
   --video_folder ./ReCo-Data \
   --debug
@@ -141,7 +145,7 @@ python reco_data_test_single.py \
 You can also load a **mixed dataset** composed of the four tasks (**add**, **remove**, **replace**, and **style**) with arbitrary ratios by running:
 
 ```bash
-python reco_data_test_mix_data.py \
+python scripts/reco_data_test_mix_data.py \
   --json_folder ./ReCo-Data \
   --video_folder ./ReCo-Data \
   --debug
@@ -291,7 +295,8 @@ You need to prepare both the base model and our specific checkpoints.
 │   └── ReCo_ori_rank128-2025_m12_version.ckpt
 |   |__ ReCo_ref_rank256-2026_m4_version.ckpt
 ├── assets/                      
-└── inference_reco_single.py
+└── scripts/
+    └── inference_reco_single.py
 ```
 
 ### 3. Running Inference
@@ -299,13 +304,13 @@ You need to prepare both the base model and our specific checkpoints.
 We provide a bash script to automate the execution of different tasks (Replace, Remove, Style, Add and Propagation). Run the following command:
 
 ```bash
-bash infer_server_single.sh
+bash scripts/infer_server_single.sh
 ```
 
 To run a specific task manually or customize the execution, use the python command directly:
 
 ```bash
-python inference_reco_single.py \
+python scripts/inference_reco_single.py \
     --task_name replace \
     --test_txt_file_name assets/replace_test.txt \
     --lora_ckpt ReCo_ori_rank128-2025_m12_version.ckpt
@@ -324,10 +329,10 @@ python inference_reco_single.py \
 Run the IP-conditioned inference script:
 
 ```bash
-bash infer_server_single_ref_rank256.sh
+bash scripts/infer_server_single_ref_rank256.sh
 ```
 
-This script calls `inference_reco_single_ref.py` and demonstrates different modes: prompt-only, IP-image-only, first-frame-only, or using both IP image and first-frame conditioning together.
+This script calls `scripts/inference_reco_single_ref.py` and demonstrates different modes: prompt-only, IP-image-only, first-frame-only, or using both IP image and first-frame conditioning together.
 
 
 ## 🚀 Training
@@ -337,13 +342,13 @@ This script calls `inference_reco_single_ref.py` and demonstrates different mode
 Run:
 
 ```bash
-bash train.sh
+bash scripts/train.sh
 ```
 
 Before launching training:
 
 * Update the **pretrained model weight paths** in your script to match local paths.
-* In `train.py`, update dataset paths in `LightningModelForTrain.train_dataloader`:
+* In `scripts/train.py`, update dataset paths in `LightningModelForTrain.train_dataloader`:
   * **JSON annotation directory**
   * **Video data directory**
 
@@ -363,13 +368,13 @@ To start this training pipeline, follow two steps:
    [kiwidata.zip](https://huggingface.co/HiDream-ai/ReCo/blob/main/kiwidata/kiwidata.zip),  
    then place/extract it under the current project.
 2. Update related configs in:
-   * `train_multitask_add_kiwi_ref_data.py` (around `196-210`)
+   * `scripts/train_multitask_add_kiwi_ref_data.py` (around `196-210`)
    * `kiwidata/test_dataset_mixdata.py` (around `32-54`)
 
 **Step 2. Launch training**
 
 ```bash
-bash train_multitask_add_kiwi_ref_data_2node.sh
+bash scripts/train_multitask_add_kiwi_ref_data.sh
 ```
 
 This pipeline includes mixed data loading from **ReCo-Data**, **DiTTO**, and **OpenVE-3M**, and also integrates kiwi-edit paired IP-reference data. The `kiwidata` folder provides our filtered and organized config files that better match the original dataset formats. Feel free to use and adapt them.
